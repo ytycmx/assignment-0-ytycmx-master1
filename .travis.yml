@@ -1,0 +1,10 @@
+language: csharp
+dist: trusty
+group: stable
+solution: HomeworkTest.sln
+install:
+  - sudo apt-get install nunit-console
+  - nuget restore HomeworkTest/HomeworkTest.sln
+script:
+  - msbuild  /p:Configuration=Release HomeworkTest/HomeworkTest.sln
+  - nunit-console HomeworkTest/HomeworkTest.UnitTests/bin/Release/HomeworkTest.UnitTests.dll
